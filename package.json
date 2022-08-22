@@ -10,7 +10,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "keycloak": "yarn build && build-keycloak-theme",
+        "keycloak": "yarn build && keycloakify",
         "download-builtin-keycloak-theme": "download-builtin-keycloak-theme 15.0.2"
     },
     "author": "u/garronej",

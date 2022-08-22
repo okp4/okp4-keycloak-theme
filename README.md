@@ -4,11 +4,11 @@
 
 # ⚠️ Please read the two following notices ⚠️
 
-> This setup is for **CSS-level customization**, if you want to customize the pages at
-> **the component level** heads over to [the look_and_feel branch](https://github.com/garronej/keycloakify-starter/tree/look_and_feel).
+> This starter is for **CSS-level customization**, if you want to customize the pages at
+> **the component level** heads over to [keycloakify-advanced-starter](https://github.com/garronej/keycloakify-advanced-starter).
 
 > If you are only looking to create a theme and don't care about integrating it into a preexisting React app there
-    > are a lot of things that you can remove. [Please read this](/standalone-keycloak-theme).
+> are a lot of things that you can remove from this starter. [Please read this](/standalone-keycloak-theme).
 
 # Quick start
 
