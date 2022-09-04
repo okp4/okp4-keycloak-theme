@@ -1,8 +1,8 @@
 {
     "name": "keycloakify-starter",
     "homepage": "https://demo-app.keycloakify.dev",
-    "version": "1.0.0",
-    "description": "A demo project for keycloakify",
+    "version": "1.0.1",
+    "description": "A starter/demo project for keycloakify",
     "repository": {
         "type": "git",
         "url": "git://github.com/garronej/keycloakify-starter.git"
