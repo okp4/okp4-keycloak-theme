@@ -6075,10 +6075,10 @@ jsonpointer@^5.0.0:
     array-includes "^3.1.5"
     object.assign "^4.1.2"
 
-keycloakify@6.0.0-beta.12:
-  version "6.0.0-beta.12"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-6.0.0-beta.12.tgz#751e3e704802c4ae1bb75a975290baea30e861f0"
-  integrity sha512-KeqqXqSZMZ5omRaV/ikdKNhI2lKBqot/bAHRaQ+KAyox2hT+XirUElfwxhrCinMio1aVKkiZB64C8KOjpJtNyw==
+keycloakify@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-6.0.0.tgz#3a3f71a14514d6b2a5fbfe3517d74ac974224a3d"
+  integrity sha512-9SZAEuBiOTxfd0dOYdb+RJAaYq6eTc7SaoM7LTQuw/JqQfUM7x6/kOHUNOP7x9iTs6vptHRfSUZb52ydp8fltA==
   dependencies:
     "@octokit/rest" "^18.12.0"
     cheerio "^1.0.0-rc.5"
@@ -6091,7 +6091,7 @@ keycloakify@6.0.0-beta.12:
     react-markdown "^5.0.3"
     scripting-tools "^0.19.13"
     tsafe "^1.0.1"
-    tss-react "^4.0.0"
+    tss-react "^4.1.1"
     zod "^3.17.10"
 
 kind-of@^6.0.2:
@@ -8806,10 +8806,10 @@ tslib@^2.0.3:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
-tss-react@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-4.0.0.tgz#cdd9d4c4ae24de04c13b9deff59b50fdf6ce10ae"
-  integrity sha512-pPkOKWiWWPbKdQFnGGeHEgRceUwkjrv0eldVCAdBll3j6Y3Ys/xwqsnlWYwWOU3SMJygVRE/S4CsIYx6KPpOkA==
+tss-react@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-4.1.1.tgz#207220417e4b2f8eb26d8280ab9cdeb385063069"
+  integrity sha512-K1U2s/GGw+XycUjJGztJsLUhwm8KJWz5afL5WZU3SwMeQsA+gbETM6bSxVk2/DXBdw9uYLL9jkSYPAXh0tfYBw==
   dependencies:
     "@emotion/cache" "*"
     "@emotion/serialize" "*"
