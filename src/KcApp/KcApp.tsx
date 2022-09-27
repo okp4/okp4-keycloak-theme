@@ -65,6 +65,8 @@ export default function KcApp(props: Props) {
                 // NOTE: The classes are defined in ./KcApp.css
                 "kcHeaderWrapperClass": "my-color my-font",
             }}
+            //Uncomment the following line if you want to prevent the default .css to be downloaded
+            //doFetchDefaultThemeResources={false} 
         />
     );
 }
