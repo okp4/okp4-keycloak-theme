@@ -83,7 +83,7 @@ repository `Settings` tab, then `Secrets` you will need to add two new secrets:
 
 If you are only looking to create a keycloak theme, you can run theses few commands
 after clicking ![image](https://user-images.githubusercontent.com/6702424/98155461-92395e80-1ed6-11eb-93b2-98c64453043f.png) to refactor the template 
-and remove unnecessary file.
+and remove unnecessary files.
 
 ```bash
 rm -r src/App
@@ -92,10 +92,9 @@ mv src/KcApp/* src/
 
 cat << EOF > src/index.tsx
 import { createRoot } from "react-dom/client";
-import { StrictMode, lazy, Suspense } from "react";
-import { kcContext } from "./KcApp/kcContext";
-
-const KcApp = lazy(() => import("./KcApp"));
+import { StrictMode } from "react";
+import { kcContext } from "./kcContext";
+import KcApp from "./KcApp";
 
 if( kcContext === undefined ){
     throw new Error(
