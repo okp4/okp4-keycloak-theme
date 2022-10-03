@@ -106,7 +106,7 @@ if( kcContext === undefined ){
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <KcApp kcContext={kcContext} />
-    </StrictMode>,
+    </StrictMode>
 );
 EOF
 
