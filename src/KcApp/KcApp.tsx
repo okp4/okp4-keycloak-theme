@@ -7,8 +7,9 @@ import KcAppBase, {
 } from "keycloakify";
 import tos_en_url from "./tos_en.md";
 import tos_fr_url from "./tos_fr.md";
-import { Header, Logo, ThemeProvider } from "@okp4/ui";
-import React from "react";
+import { Header, Logo, ThemeContextType, useTheme } from "@okp4/ui";
+import lightCosmos from '@okp4/ui/lib/assets/images/cosmos-clear.png'
+import darkCosmos from '@okp4/ui/lib/assets/images/cosmos-dark.png'
 
 export type Props = {
   kcContext: KcContext;
@@ -16,6 +17,8 @@ export type Props = {
 
 export default function KcApp(props: Props) {
   const { kcContext } = props;
+  const { theme }: ThemeContextType = useTheme()
+  const themedImage = theme === 'light' ? lightCosmos : darkCosmos
 
   useDownloadTerms({
     kcContext,
@@ -63,23 +66,19 @@ export default function KcApp(props: Props) {
   }
 
   return (
-    <div>
-      <React.StrictMode>
-        <ThemeProvider>
-          <Header firstElement={<Logo />} />
-          <KcAppBase
-            kcContext={kcContext}
-            i18n={i18n}
-            {...{
-              ...defaultKcProps,
-              // NOTE: The classes are defined in ./KcApp.css
-              kcHeaderWrapperClass: "my-color my-font",
-            }}
-            //Uncomment the following line if you want to prevent the default .css to be downloaded
-            //doFetchDefaultThemeResources={false}
-          />
-        </ThemeProvider>
-      </React.StrictMode>
+    <div style={{ backgroundImage: `url(${themedImage})` }}>
+      <Header firstElement={<Logo />} />
+      <KcAppBase
+        kcContext={kcContext}
+        i18n={i18n}
+        {...{
+          ...defaultKcProps,
+          // NOTE: The classes are defined in ./KcApp.css
+          kcHeaderWrapperClass: "my-color my-font",
+        }}
+        //Uncomment the following line if you want to prevent the default .css to be downloaded
+        //doFetchDefaultThemeResources={false}
+      />
     </div>
   );
 }

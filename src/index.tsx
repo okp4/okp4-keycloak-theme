@@ -1,16 +1,31 @@
 import { createRoot } from "react-dom/client";
 import { StrictMode, lazy, Suspense } from "react";
 import { kcContext } from "./KcApp/kcContext";
+import React from "react";
+import { ThemeProvider } from "@okp4/ui";
+import './styles.scss'
 
 const App = lazy(() => import("./App"));
 const KcApp = lazy(() => import("./KcApp"));
 
 if (kcContext !== undefined) {
-    console.log(kcContext);
+  console.log(kcContext);
 }
 
 createRoot(document.getElementById("root")!).render(
-    <StrictMode>
-        <Suspense>{kcContext === undefined ? <App /> : <KcApp kcContext={kcContext} />}</Suspense>
-    </StrictMode>,
+  <StrictMode>
+    <Suspense>
+      <React.StrictMode>
+        <ThemeProvider>
+          <div className="okp4-login-main" >
+            {kcContext === undefined ? (
+              <App />
+            ) : (
+              <KcApp kcContext={kcContext} />
+            )}
+          </div>
+        </ThemeProvider>
+      </React.StrictMode>
+    </Suspense>
+  </StrictMode>
 );
