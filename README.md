@@ -1,8 +1,8 @@
-<p align="center">
-    <img src="https://github.com/garronej/keycloakify-starter/workflows/ci/badge.svg?branch=main">
-</p>
+# OKP4 keycloak login page
 
-A starter/demo project for [Keycloakify](https://keycloakify.dev)
+## 🚧 WIP
+
+This repo starts from this very cool project : [A starter/demo project](https://github.com/garronej/keycloakify-starter) for [Keycloakify](https://keycloakify.dev) and aims to use [@okp4/ui](https://github.com/okp4/ui) library to build a login template page for keycloak.
 
 # ⚠️ Please read the two following notices ⚠️
 
