@@ -7,6 +7,8 @@ import KcAppBase, {
 } from "keycloakify";
 import tos_en_url from "./tos_en.md";
 import tos_fr_url from "./tos_fr.md";
+import { Header, Logo, ThemeProvider } from "@okp4/ui";
+import React from "react";
 
 export type Props = {
   kcContext: KcContext;
@@ -61,16 +63,23 @@ export default function KcApp(props: Props) {
   }
 
   return (
-    <KcAppBase
-      kcContext={kcContext}
-      i18n={i18n}
-      {...{
-        ...defaultKcProps,
-        // NOTE: The classes are defined in ./KcApp.css
-        kcHeaderWrapperClass: "my-color my-font",
-      }}
-      //Uncomment the following line if you want to prevent the default .css to be downloaded
-      //doFetchDefaultThemeResources={false}
-    />
+    <div>
+      <React.StrictMode>
+        <ThemeProvider>
+          <Header firstElement={<Logo />} />
+          <KcAppBase
+            kcContext={kcContext}
+            i18n={i18n}
+            {...{
+              ...defaultKcProps,
+              // NOTE: The classes are defined in ./KcApp.css
+              kcHeaderWrapperClass: "my-color my-font",
+            }}
+            //Uncomment the following line if you want to prevent the default .css to be downloaded
+            //doFetchDefaultThemeResources={false}
+          />
+        </ThemeProvider>
+      </React.StrictMode>
+    </div>
   );
 }
