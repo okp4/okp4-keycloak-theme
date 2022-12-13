@@ -1,8 +1,8 @@
 {
-    "name": "keycloak-okp4-theme",
+    "description": "OKP4 keycloak theme",
+    "name": "okp4",
     "homepage": "https://okp4.network",
     "version": "0.0.1",
-    "description": "OKP4 keycloak theme",
     "repository": {
         "type": "git",
         "url": "git://github.com/okp4/keycloak-okp4-theme.git"
