@@ -18,7 +18,6 @@
     "license": "MIT",
     "keywords": [],
     "dependencies": {
-        "@emotion/react": "^11.9.0",
         "@okp4/ui": "^4.0.0",
         "keycloakify": "^6.8.4",
         "react": "18.1.0",
