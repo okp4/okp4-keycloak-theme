@@ -89,7 +89,7 @@ L'accès au SSP Cloud nécessite une inscription préalable et une authentificat
 
 ## Les projets d'expérimentation sur données sensibles
 
-**TODO**
+## TODO
 
 Rôle du responsable de sécurité du projet
 
@@ -125,7 +125,7 @@ statistiques d’usages) ainsi que la gestion des services offerts par la platef
 données à caractère personnel transverses dont le traitement est sous la
 responsabilité de l'Insee.
 
-**Suite à gérer avec le DC POD**
+## Suite à gérer avec le DC POD
 
 > RL : @Fred, je mets un peu au hasard, je te laisse compléter/amender
 

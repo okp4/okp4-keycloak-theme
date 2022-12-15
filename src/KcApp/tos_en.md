@@ -88,7 +88,7 @@ Access to the SSP Cloud requires prior registration and authentication.
 
 ## Experimental projects on sensitive data
 
-**TODO**
+## TODO
 
 Role of the project security manager
 
@@ -124,7 +124,7 @@ usage statistics) as well as the management of the services offered by the platf
 transverse personal data whose processing is under the
 responsibility of INSEE.
 
-**Suite to be managed with the DC POD**
+## Suite to be managed with the DC POD
 
 > RL: @Fred, I put it a bit at random, I let you complete / amend
 

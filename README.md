@@ -8,7 +8,7 @@ This repo starts from this very cool project : [A starter/demo project](https://
 
 > This starter is for **CSS-level customization**, if you want to customize the pages at
 > **the component level** heads over to [keycloakify-advanced-starter](https://github.com/garronej/keycloakify-advanced-starter).
-
+<!-- markdownlint-disable-line -->
 > If you are only looking to create a theme and don't care about integrating it into a React app there
 > are a lot of things that you can remove from this starter.
 
