@@ -1,4 +1,4 @@
-import "./KcApp.css";
+import "./KcApp.scss";
 import type { KcContext } from "./kcContext";
 import KcAppBase, {
   defaultKcProps,
