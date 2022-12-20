@@ -1,0 +1,8 @@
+{
+  "sign-in": "Connexion",
+  "username": "Nom d'utilisateur",
+  "email": "Email",
+  "username-or-email": "Nom d'utilisateur ou email",
+  "password": "Mot de passe",
+  "forget-password": "Mot de passe oublié ?"
+}

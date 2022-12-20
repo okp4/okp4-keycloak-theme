@@ -1,7 +1,8 @@
 import { useState, useCallback, memo } from "react";
 import type { KcContextBase, KcProps } from "keycloakify";
 import type { FormEventHandler } from "react";
-import { Typography } from "@okp4/ui";
+import type { UseTranslationResponse } from "@okp4/ui";
+import { Typography, useTranslation } from "@okp4/ui";
 import { clsx } from "keycloakify/lib/tools/clsx";
 import { useConstCallback } from "powerhooks/useConstCallback";
 import { SvgIcon } from "KcApp/SvgIcon";
@@ -18,6 +19,7 @@ type LoginProps = KcProps & {
 
 const Login = memo((props: LoginProps) => {
   const { kcContext, ...kcProps } = props;
+  const { t }: UseTranslationResponse = useTranslation();
   const { realm, url, usernameEditDisabled } = kcContext;
 
   const label = !realm.loginWithEmailAllowed
@@ -51,7 +53,7 @@ const Login = memo((props: LoginProps) => {
   return (
     <div className="kc-form">
       <Typography color="inverted-text" fontSize="medium" fontWeight="bold">
-        Connexion
+        {t("login:sign-in")}
       </Typography>
       <div className="kc-form-wrapper">
         {realm.password && (
@@ -65,7 +67,7 @@ const Login = memo((props: LoginProps) => {
                       id={autoCompleteHelper}
                       name="email"
                       onChange={handleInputChange}
-                      placeholder="Email"
+                      placeholder={t(`login:${autoCompleteHelper}`)}
                       tabIndex={1}
                       type="text"
                       value={credentials.email}
@@ -87,7 +89,7 @@ const Login = memo((props: LoginProps) => {
                 id="password"
                 name="password"
                 onChange={handleInputChange}
-                placeholder="Password"
+                placeholder={t("login:password")}
                 tabIndex={2}
                 type="password"
                 value={credentials.password}
@@ -103,7 +105,7 @@ const Login = memo((props: LoginProps) => {
                 {realm.resetPasswordAllowed && (
                   <span>
                     <a href={url.loginResetCredentialsUrl} tabIndex={5}>
-                      Mot de passe oublié ?
+                      {t("login:forget-password")}
                     </a>
                   </span>
                 )}
@@ -119,7 +121,7 @@ const Login = memo((props: LoginProps) => {
                 tabIndex={4}
                 type="submit"
               >
-                Connexion
+                {t("login:sign-in")}
               </button>
             </div>
           </form>
