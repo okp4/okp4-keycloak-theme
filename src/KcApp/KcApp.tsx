@@ -1,23 +1,19 @@
-import React from 'react'
+import { useMemo } from 'react'
 import type { KcContext } from './kcContext'
-import type { ThemeContextType, DeepReadonly } from '@okp4/ui'
-import KcAppBase, { defaultKcProps, useDownloadTerms, useI18n } from 'keycloakify'
-import { Header, Logo, useTheme } from '@okp4/ui'
+import KcAppBase, { defaultKcProps, useDownloadTerms } from 'keycloakify'
+import darkCosmos from '@okp4/ui/lib/assets/images/cosmos-dark.png'
+import { Footer, Logo } from '@okp4/ui'
+import { SvgIcon } from './SvgIcon'
+import Login from './login/Login'
 import tos_en_url from './tos_en.md'
 import tos_fr_url from './tos_fr.md'
-import lightCosmos from '@okp4/ui/lib/assets/images/cosmos-clear.png'
-import darkCosmos from '@okp4/ui/lib/assets/images/cosmos-dark.png'
-import './KcApp.scss'
 
 export type Props = {
   kcContext: KcContext
 }
 
-// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types, max-lines-per-function
-export default function KcApp(props: Props): JSX.Element {
-  const { kcContext }: Props = props
-  const { theme }: ThemeContextType = useTheme()
-  const themedImage = theme === 'light' ? lightCosmos : darkCosmos
+const KcApp = (props: Props) => {
+  const { kcContext } = props
 
   useDownloadTerms({
     kcContext,
@@ -41,35 +37,54 @@ export default function KcApp(props: Props): JSX.Element {
     }
   })
 
-  const i18n = useI18n({
-    kcContext,
-    extraMessages: {
-      en: {
-        foo: 'foo in English',
-        doForgotPassword: 'I forgot my password'
-      },
-      fr: {
-        foo: 'foo en Francais',
-        doForgotPassword: "J'ai oublié mon mot de passe"
-      }
+  const langsCodes = [
+    {
+      name: 'English',
+      lng: 'en'
+    },
+    {
+      name: 'Français',
+      lng: 'fr'
     }
-  })
+  ]
 
-  if (i18n === null) {
-    return <div>null</div>
-  }
+  const renderContext = useMemo(() => {
+    switch (kcContext.pageId) {
+      case 'login.ftl':
+        return <Login kcContext={kcContext} {...defaultKcProps} />
+      default:
+        return (
+          <KcAppBase
+            kcContext={kcContext}
+            {...{
+              ...defaultKcProps
+            }}
+          />
+        )
+    }
+  }, [])
 
   return (
-    <div style={{ backgroundImage: `url(${themedImage})` }}>
-      <Header firstElement={<Logo />} />
-      <KcAppBase
-        i18n={i18n}
-        kcContext={kcContext}
-        {...{
-          ...defaultKcProps,
-          kcHeaderWrapperClass: 'my-color my-font'
-        }}
-      />
+    <div className="okp4-login-main-container">
+      <div className="okp4-login-main-content" style={{ backgroundImage: `url(${darkCosmos})` }}>
+        <div className="okp4-login-main-left-content">
+          <div className="okp4-login-main-left-content-wrapper">
+            <div className="okp4-login-main-left-content-header">
+              <Logo size="x-small" />
+            </div>
+            <div className="okp4-login-main-left-content-body">
+              <SvgIcon type="logo" />
+            </div>
+            <Footer languages={langsCodes} />
+          </div>
+        </div>
+        <div className="okp4-login-main-right-content">
+          <div className="okp4-login-main-backdrop"></div>
+          <div className="okp4-login-main-right-content-wrapper">{renderContext}</div>
+        </div>
+      </div>
     </div>
   )
 }
+
+export default KcApp

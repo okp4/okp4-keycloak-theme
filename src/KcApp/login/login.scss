@@ -1,0 +1,86 @@
+.kc-form {
+  width: 100%;
+  padding-left: 12%;
+  padding-right: 20%;
+
+  .kc-form-wrapper {
+    margin-top: 40px;
+
+    .form-control {
+      display: flex;
+      align-items: center;
+      height: 42px;
+      padding: 0;
+      border-radius: 6px;
+      text-indent: 10px;
+      margin-bottom: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+      &:hover {
+        border: 1px solid rgb(78, 171, 202);
+      }
+
+      svg {
+        padding-left: 10px;
+      }
+
+      input {
+        width: 90%;
+        background: transparent;
+        border: 0;
+        text-indent: 10px;
+        color: white;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .login-pf-settings {
+      display: flex;
+      justify-content: flex-end !important;
+      margin-top: 16px;
+
+      span a {
+        font-weight: 400;
+        color: white;
+        font-size: 16px;
+        opacity: 0.6;
+        line-height: 22px;
+        font-family: Work Sans;
+        text-decoration: none;
+      }
+    }
+
+    .form-group {
+      &:last-child {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .kc-login-btn {
+        max-width: 135px !important;
+        padding: 20px 28px;
+        color: white;
+        filter: drop-shadow(0 9px 12px rgba(63, 66, 103, 0.4));
+        background: #3f4267;
+        font-size: 16px;
+        font-family: Work Sans;
+        border: 0;
+        box-shadow: 0 -4px 28px rgba(8, 9, 24, 0.4);
+        border-radius: 12px;
+        font-weight: bold;
+        margin-top: 30px;
+        cursor: pointer;
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

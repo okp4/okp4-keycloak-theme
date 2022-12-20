@@ -1,39 +1,99 @@
-@import '@okp4/ui/lib/scss/themes.scss';
+@import '@okp4/ui/lib/scss/palette.scss';
 
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
 
-  >div:first-of-type,
-  >div:first-of-type>div:first-of-type {
+  > div:first-of-type,
+  > div:first-of-type > div:first-of-type {
     height: 100%;
   }
 }
 
 .okp4-login-main {
-  @include with-theme {
-    height: 100%;
+  height: 100%;
+
+  .okp4-login-main-container {
     overflow: auto;
-    background: themed('header-background');
+    height: 100%;
+    width: 100%;
+    background: $gradient-dark-background-header;
 
-    .okp4-login-content {
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .okp4-login-main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+      background-size: contain;
       background-repeat: no-repeat;
-      align-items: center;
-
-      .okp4-brand-link {
-        text-decoration: unset;
-        color: inherit;
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
       }
 
-      .okp4-login-content {
-        padding: 25px;
+      .okp4-login-main-left-content {
+        height: 100%;
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+
+        .okp4-login-main-left-content-wrapper {
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          .okp4-login-main-left-content-header {
+            padding: 25px;
+            filter: brightness(0) invert(1);
+          }
+
+          .okp4-login-main-left-content-body {
+            display: flex;
+            flex-grow: 2;
+            align-items: center;
+            padding-top: 0 !important;
+            justify-content: center;
+          }
+
+          .okp4-footer-main {
+            background: transparent;
+          }
+        }
+
+        .okp4-logo-main {
+          width: 110px;
+          height: 30px;
+        }
+      }
+
+      .okp4-login-main-right-content {
+        height: 100%;
+        position: relative;
+
+        .okp4-login-main-backdrop {
+          height: 100%;
+          position: absolute;
+          width: 100%;
+          opacity: 0.75;
+          background: rgba(16, 19, 49, 0.8);
+          box-shadow: 0 -4px 28px rgba(8, 9, 24, 0.4);
+
+          @media screen and (max-width: 768px) {
+            opacity: 0.35;
+          }
+        }
+
+        .okp4-login-main-right-content-wrapper {
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
