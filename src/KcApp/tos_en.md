@@ -6,7 +6,7 @@
 
 The SSP Cloud is a service (hereinafter referred to as "the service") implemented by the National Institute for Statistics and Economic Studies (hereinafter referred to as "Insee").
 
-The SSP Cloud is an implementation of free software [Onyxia] (https://github.com/InseeFrLab/onyxia) created and maintained by the innovation and technical instruction division of INSEE (information system management / innovation unit and information system strategy). The SSP Cloud is hosted by INSEE.
+The SSP Cloud is an implementation of free software [Onyxia] (<https://github.com/InseeFrLab/onyxia>) created and maintained by the innovation and technical instruction division of INSEE (information system management / innovation unit and information system strategy). The SSP Cloud is hosted by INSEE.
 
 [EC: I will remove the "on open data", since the SSP Cloud can accommodate secure data under the appropriate conditions]
 The SSP Cloud is a platform offering a "datalab" intended for _data science_ experiments on open data in which users can orchestrate services dedicated to the practice of _data science_ (development environments, databases, etc.). This service offering thus aims to familiarize users with new collaborative working methods using _open source_ statistical languages ​​(R, python, Julia, etc.), _cloud computing_ type technologies, as well as to allow processing experiments. innovative statistics. The services offered are standard.
@@ -15,12 +15,12 @@ The SSP Cloud is aimed at officials of the official statistical system as well a
 
 The SSP Cloud allows:
 
--   the orchestration of _data science_ trainings
--   access to _data science_ services
--   secure data storage
--   management of secrets, such as encryption keys
--   access to a code management service
--   orchestration of data processing flows
+- the orchestration of _data science_ trainings
+- access to _data science_ services
+- secure data storage
+- management of secrets, such as encryption keys
+- access to a code management service
+- orchestration of data processing flows
 
 A user account is also used to connect to the service platform of the Inter-ministerial Mutualization Free Software community (<https://groupes.mim-libre.fr/>).
 
@@ -49,8 +49,8 @@ Internet. The use of a computer is recommended. Use of the datalab services is f
 
 The user community is accessible on:
 
--   Tchap, salon [SSP Cloud] (https://www.tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr)
--   Rocket Chat at MIM Libre, [SSP Cloud] lounge (https://chat.mim-libre.fr/channel/sspcloud)
+- Tchap, salon [SSP Cloud] (<https://www.tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr>)
+- Rocket Chat at MIM Libre, [SSP Cloud] lounge (<https://chat.mim-libre.fr/channel/sspcloud>)
 
 ## Limits of use of the Service
 
@@ -69,8 +69,7 @@ responsibility.
 
 The service is made available by INSEE without other express guarantees or
 tacit than those provided herein. The service is based on benchmark open source technologies. However, it is not guaranteed that it
-is free from anomalies or errors. The service is therefore made available ** without
-guaranteed availability and performance **. As such, INSEE cannot
+is free from anomalies or errors. The service is therefore made available **without guaranteed availability and performance**. As such, INSEE cannot
 be held responsible for loss and / or damage of any kind
 be, who couldbe caused as a result of a malfunction or
 unavailability of the service. Such situations will not give right to any
@@ -89,7 +88,7 @@ Access to the SSP Cloud requires prior registration and authentication.
 
 ## Experimental projects on sensitive data
 
-** TODO **
+## TODO
 
 Role of the project security manager
 
@@ -125,7 +124,7 @@ usage statistics) as well as the management of the services offered by the platf
 transverse personal data whose processing is under the
 responsibility of INSEE.
 
-** Suite to be managed with the DC POD **
+## Suite to be managed with the DC POD
 
 > RL: @Fred, I put it a bit at random, I let you complete / amend
 
@@ -135,8 +134,8 @@ their first name, last name and email address (required);
 
 freely:
 
--   photo (see gitlab)
--   ...
+- photo (see gitlab)
+- ...
 
 ### Trace data
 
@@ -152,11 +151,11 @@ subject to periodic review by the directors for control purposes and usage stati
 These cookies are only intended to allow the service to function and
 to facilitate its use by users according to the constraints of each typology.
 
--   Session cookie: mandatory, it identifies the session of
-    the user. The cookie is destroyed at the end of the session.
+- Session cookie: mandatory, it identifies the session of
+  the user. The cookie is destroyed at the end of the session.
 
--   Reauthentication cookie: optional, it allows you to re-authenticate
-    the user logged in for the duration of the cookie (one year maximum)
+- Reauthentication cookie: optional, it allows you to re-authenticate
+  the user logged in for the duration of the cookie (one year maximum)
 
 ## Modification and evolution of the Service
 

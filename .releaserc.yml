@@ -1,0 +1,20 @@
+branches:
+  - main
+
+plugins:
+  - - "@semantic-release/commit-analyzer"
+    - preset: conventionalcommits
+  - - "@semantic-release/release-notes-generator"
+    - preset: conventionalcommits
+  - - '@semantic-release/changelog'
+    - changelogFile: CHANGELOG.md
+      changelogTitle: '# ØKP4 keycloak theme changelog'
+  - - '@semantic-release/npm'
+    - npmPublish: false
+      tarballDir: 'false'
+  - '@semantic-release/github'
+  - - '@semantic-release/git'
+    - assets:
+        - CHANGELOG.md
+        - build_keycloak/target/okp4-keycloak-theme-*.jar
+      message: 'chore(release): perform release ${nextRelease.version}'
