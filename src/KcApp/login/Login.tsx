@@ -1,68 +1,77 @@
-import { useState, useCallback, memo } from "react";
-import type { KcContextBase, KcProps } from "keycloakify";
-import type { FormEventHandler } from "react";
-import type { UseTranslationResponse } from "@okp4/ui";
-import { Typography, useTranslation } from "@okp4/ui";
-import { clsx } from "keycloakify/lib/tools/clsx";
-import { useConstCallback } from "powerhooks/useConstCallback";
-import { SvgIcon } from "KcApp/SvgIcon";
-import "./login.scss";
+import React, { useState, useCallback, memo } from 'react'
+import type { KcContextBase, KcProps } from 'keycloakify'
+import type { FormEventHandler } from 'react'
+import type { UseState, UseTranslationResponse } from '@okp4/ui'
+import { Typography, useTranslation } from '@okp4/ui'
+import { clsx } from 'keycloakify/lib/tools/clsx'
+import { useConstCallback } from 'powerhooks/useConstCallback'
+import { ReactComponent as ProfileSvg } from '../../assets/icons/profile.svg'
+import { ReactComponent as LockSvg } from '../../assets/icons/lock.svg'
+import './login.scss'
 
 type LoginState = {
-  email: string;
-  password: string;
-};
+  readonly email: string
+  readonly password: string
+}
+
+type ContextProps = {
+  realm: KcContextBase.Login['realm']
+  url: KcContextBase.Login['url']
+  usernameEditDisabled: boolean
+}
 
 type LoginProps = KcProps & {
-  kcContext: KcContextBase.Login;
-};
+  kcContext: KcContextBase.Login
+}
 
-const Login = memo((props: LoginProps) => {
-  const { kcContext, ...kcProps } = props;
-  const { t }: UseTranslationResponse = useTranslation();
-  const { realm, url, usernameEditDisabled } = kcContext;
+// eslint-disable-next-line max-lines-per-function, @typescript-eslint/prefer-readonly-parameter-types
+const Login = (props: LoginProps): JSX.Element => {
+  const { kcContext, ...kcProps }: LoginProps = props
+  const { t }: UseTranslationResponse = useTranslation()
+  const { realm, url, usernameEditDisabled }: ContextProps = kcContext
 
   const label = !realm.loginWithEmailAllowed
-    ? "username"
+    ? 'username'
     : realm.registrationEmailAsUsername
-    ? "email"
-    : "username-or-email";
+    ? 'email'
+    : 'username-or-email'
 
-  const autoCompleteHelper: typeof label =
-    label === "username-or-email" ? "username" : label;
+  const autoCompleteHelper: typeof label = label === 'username-or-email' ? 'username' : label
 
-  const [credentials, setCredentials] = useState<LoginState>({
-    email: "",
-    password: "",
-  });
+  const [credentials, setCredentials]: UseState<LoginState | ((value: LoginState) => LoginState)> =
+    useState<LoginState>({
+      email: '',
+      password: ''
+    })
 
-  const onSubmit = useConstCallback<FormEventHandler<HTMLFormElement>>(e => {
-    e.preventDefault();
-  });
+  const onSubmit = useConstCallback<FormEventHandler<HTMLFormElement>>(
+    // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+    }
+  )
 
-  const handleInputChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setCredentials((prevState: LoginState) => ({
-        ...prevState,
-        [event.target.name]: event.target.value,
-      }));
-    },
-    []
-  );
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+  const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setCredentials((prevState: LoginState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value
+    }))
+  }, [])
 
   return (
     <div className="kc-form">
       <Typography color="inverted-text" fontSize="medium" fontWeight="bold">
-        {t("login:sign-in")}
+        {t('login:sign-in')}
       </Typography>
       <div className="kc-form-wrapper">
         {realm.password && (
           <form action={url.loginAction} method="post" onSubmit={onSubmit}>
             <div className={clsx(kcProps.kcFormGroupClass)}>
-              {(() => {
+              {((): JSX.Element => {
                 return (
                   <div className={clsx(kcProps.kcInputClass)}>
-                    <SvgIcon type="profile" />
+                    <ProfileSvg />
                     <input
                       id={autoCompleteHelper}
                       name="email"
@@ -75,37 +84,32 @@ const Login = memo((props: LoginProps) => {
                         ? { disabled: true }
                         : {
                             autoFocus: true,
-                            autoComplete: "off",
+                            autoComplete: 'off'
                           })}
                     />
                   </div>
-                );
+                )
               })()}
             </div>
             <div className={clsx(kcProps.kcInputClass)}>
-              <SvgIcon type="lock" />
+              <LockSvg />
               <input
                 autoComplete="off"
                 id="password"
                 name="password"
                 onChange={handleInputChange}
-                placeholder={t("login:password")}
+                placeholder={t('login:password')}
                 tabIndex={2}
                 type="password"
                 value={credentials.password}
               />
             </div>
-            <div
-              className={clsx(
-                kcProps.kcFormGroupClass,
-                kcProps.kcFormSettingClass
-              )}
-            >
+            <div className={clsx(kcProps.kcFormGroupClass, kcProps.kcFormSettingClass)}>
               <div className={clsx(kcProps.kcFormOptionsWrapperClass)}>
                 {realm.resetPasswordAllowed && (
                   <span>
                     <a href={url.loginResetCredentialsUrl} tabIndex={5}>
-                      {t("login:forget-password")}
+                      {t('login:forget-password')}
                     </a>
                   </span>
                 )}
@@ -114,21 +118,19 @@ const Login = memo((props: LoginProps) => {
             <div className={clsx(kcProps.kcFormGroupClass)}>
               <button
                 className="kc-login-btn"
-                disabled={
-                  !credentials.email.length || !credentials.password.length
-                }
+                disabled={!credentials.email.length || !credentials.password.length}
                 name="login"
                 tabIndex={4}
                 type="submit"
               >
-                {t("login:sign-in")}
+                {t('login:sign-in')}
               </button>
             </div>
           </form>
         )}
       </div>
     </div>
-  );
-});
+  )
+}
 
-export default Login;
+export default memo(Login)

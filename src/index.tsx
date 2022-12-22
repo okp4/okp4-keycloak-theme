@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import { StrictMode, lazy, Suspense } from 'react'
 import { kcContext } from './KcApp/kcContext'
 import { ThemeProvider } from '@okp4/ui'
+import './i18n/main'
 import './styles.scss'
 
 const KcApp = lazy(async () => await import('./KcApp'))

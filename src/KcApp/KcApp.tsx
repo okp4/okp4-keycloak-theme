@@ -1,9 +1,10 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import type { KcContext } from './kcContext'
+import type { DeepReadonly } from '@okp4/ui'
 import KcAppBase, { defaultKcProps, useDownloadTerms } from 'keycloakify'
 import darkCosmos from '@okp4/ui/lib/assets/images/cosmos-dark.png'
 import { Footer, Logo } from '@okp4/ui'
-import { SvgIcon } from './SvgIcon'
+import { ReactComponent as LogoSvg } from '../assets/icons/logo.svg'
 import Login from './login/Login'
 import tos_en_url from './tos_en.md'
 import tos_fr_url from './tos_fr.md'
@@ -12,16 +13,16 @@ export type Props = {
   kcContext: KcContext
 }
 
-const KcApp = (props: Props) => {
-  const { kcContext } = props
+type CurrentLanguage = {
+  readonly currentLanguageTag: string
+}
+// eslint-disable-next-line max-lines-per-function, @typescript-eslint/prefer-readonly-parameter-types
+const KcApp = (props: Props): JSX.Element => {
+  const { kcContext }: Props = props
 
   useDownloadTerms({
     kcContext,
-    downloadTermMarkdown: async ({
-      currentLanguageTag
-    }: {
-      readonly currentLanguageTag: string
-    }) => {
+    downloadTermMarkdown: async ({ currentLanguageTag }: CurrentLanguage) => {
       const markdownString = await fetch(
         ((): string => {
           switch (currentLanguageTag) {
@@ -62,7 +63,7 @@ const KcApp = (props: Props) => {
           />
         )
     }
-  }, [])
+  }, [kcContext])
 
   return (
     <div className="okp4-login-main-container">
@@ -73,7 +74,7 @@ const KcApp = (props: Props) => {
               <Logo size="x-small" />
             </div>
             <div className="okp4-login-main-left-content-body">
-              <SvgIcon type="logo" />
+              <LogoSvg />
             </div>
             <Footer languages={langsCodes} />
           </div>
