@@ -1,13 +1,12 @@
-import { createRoot } from "react-dom/client";
-import { StrictMode, lazy, Suspense } from "react";
-import { kcContext } from "./KcApp/kcContext";
-import React from "react";
-import { ThemeProvider } from "@okp4/ui";
-import "./styles.scss";
+import React, { StrictMode, lazy, Suspense } from 'react'
+import { createRoot } from 'react-dom/client'
+import { kcContext } from './KcApp/kcContext'
+import { ThemeProvider } from '@okp4/ui'
+import './styles.scss'
 
-const KcApp = lazy(() => import("./KcApp"));
+const KcApp = lazy(async () => await import('./KcApp'))
 
-const root = document.getElementById("root");
+const root = document.getElementById('root')
 
 if (root) {
   createRoot(root).render(
@@ -26,7 +25,7 @@ if (root) {
         </React.StrictMode>
       </Suspense>
     </StrictMode>
-  );
+  )
 } else {
-  console.error("no root element");
+  console.error('no root element')
 }
