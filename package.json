@@ -23,6 +23,7 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@okp4/eslint-config": "^1.1.0",
     "@okp4/ui": "^4.0.0",
     "@types/node": "^15.3.1",
     "@types/react": "18.0.9",
@@ -30,11 +31,16 @@
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "eslint": "^8.29.0",
+    "eslint-plugin-functional": "^4.4.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.1",
     "react-scripts": "5.0.0",
     "sass": "^1.56.1",
     "stylelint": "^14.16.0",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-scss": "^4.3.0",
+    "tsutils": "^3.21.0",
     "typescript": "^4.9.4"
   },
   "eslintConfig": {

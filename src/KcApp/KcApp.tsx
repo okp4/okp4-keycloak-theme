@@ -1,84 +1,75 @@
-import "./KcApp.scss";
-import type { KcContext } from "./kcContext";
-import KcAppBase, {
-  defaultKcProps,
-  useDownloadTerms,
-  useI18n,
-} from "keycloakify";
-import tos_en_url from "./tos_en.md";
-import tos_fr_url from "./tos_fr.md";
-import { Header, Logo, ThemeContextType, useTheme } from "@okp4/ui";
+import React from 'react'
+import type { KcContext } from './kcContext'
+import type { ThemeContextType, DeepReadonly } from '@okp4/ui'
+import KcAppBase, { defaultKcProps, useDownloadTerms, useI18n } from 'keycloakify'
+import { Header, Logo, useTheme } from '@okp4/ui'
+import tos_en_url from './tos_en.md'
+import tos_fr_url from './tos_fr.md'
 import lightCosmos from '@okp4/ui/lib/assets/images/cosmos-clear.png'
 import darkCosmos from '@okp4/ui/lib/assets/images/cosmos-dark.png'
+import './KcApp.scss'
 
 export type Props = {
-  kcContext: KcContext;
-};
+  kcContext: KcContext
+}
 
-export default function KcApp(props: Props) {
-  const { kcContext } = props;
+// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types, max-lines-per-function
+export default function KcApp(props: Props): JSX.Element {
+  const { kcContext }: Props = props
   const { theme }: ThemeContextType = useTheme()
   const themedImage = theme === 'light' ? lightCosmos : darkCosmos
 
   useDownloadTerms({
     kcContext,
-    downloadTermMarkdown: async ({ currentLanguageTag }) => {
+    downloadTermMarkdown: async ({
+      currentLanguageTag
+    }: {
+      readonly currentLanguageTag: string
+    }) => {
       const markdownString = await fetch(
-        (() => {
+        ((): string => {
           switch (currentLanguageTag) {
-            case "fr":
-              return tos_fr_url;
+            case 'fr':
+              return tos_fr_url
             default:
-              return tos_en_url;
+              return tos_en_url
           }
         })()
-      ).then((response) => response.text());
+      ).then(async (response: DeepReadonly<Response>) => await response.text())
 
-      return markdownString;
-    },
-  });
+      return markdownString
+    }
+  })
 
   const i18n = useI18n({
     kcContext,
-    // NOTE: Here you can override the default i18n messages
-    // or define new ones that, for example, you would have
-    // defined in the Keycloak admin UI for UserProfile
-    // https://user-images.githubusercontent.com/6702424/182050652-522b6fe6-8ee5-49df-aca3-dba2d33f24a5.png
     extraMessages: {
       en: {
-        foo: "foo in English",
-        // Here we overwrite the default english value for the message "doForgotPassword"
-        // that is "Forgot Password?" see: https://github.com/InseeFrLab/keycloakify/blob/f0ae5ea908e0aa42391af323b6d5e2fd371af851/src/lib/i18n/generated_messages/18.0.1/login/en.ts#L17
-        doForgotPassword: "I forgot my password",
+        foo: 'foo in English',
+        doForgotPassword: 'I forgot my password'
       },
       fr: {
-        /* spell-checker: disable */
-        foo: "foo en Francais",
-        doForgotPassword: "J'ai oublié mon mot de passe",
-        /* spell-checker: enable */
-      },
-    },
-  });
+        foo: 'foo en Francais',
+        doForgotPassword: "J'ai oublié mon mot de passe"
+      }
+    }
+  })
 
-  //NOTE: Locale not yet downloaded
   if (i18n === null) {
-    return null;
+    return <div>null</div>
   }
 
   return (
     <div style={{ backgroundImage: `url(${themedImage})` }}>
       <Header firstElement={<Logo />} />
       <KcAppBase
-        kcContext={kcContext}
         i18n={i18n}
+        kcContext={kcContext}
         {...{
           ...defaultKcProps,
-          // NOTE: The classes are defined in ./KcApp.css
-          kcHeaderWrapperClass: "my-color my-font",
+          kcHeaderWrapperClass: 'my-color my-font'
         }}
-        //Uncomment the following line if you want to prevent the default .css to be downloaded
-        //doFetchDefaultThemeResources={false}
       />
     </div>
-  );
+  )
 }
