@@ -3,6 +3,10 @@
   padding-left: 12%;
   padding-right: 20%;
 
+  @media screen and (max-width: 568px) {
+    padding: 0 20px;
+  }
+
   .kc-form-wrapper {
     margin-top: 40px;
 

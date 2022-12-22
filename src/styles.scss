@@ -27,7 +27,9 @@ body {
       height: 100%;
       background-size: contain;
       background-repeat: no-repeat;
+
       @media screen and (max-width: 768px) {
+        background-position: center;
         grid-template-columns: 1fr;
       }
 
