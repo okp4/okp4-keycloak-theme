@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/okp4/keycloak-okp4-theme.git"
+    "url": "git://github.com/okp4/okp4-keycloak-theme.git"
   },
   "scripts": {
     "start": "react-scripts start",
